@@ -5,19 +5,14 @@ import (
 	"log"
 	"os"
 	"strconv"
-
-	"github.com/voigt/adventofcode2021/pkg/utils"
 )
 
-func PartOne() int {
-	INPUT := utils.GetFileInputsAsIntSlice("pkg/advdentofcode/one/input.txt")
-
-	return GetIncreaseCount(INPUT)
+func PartOne(input []int) int {
+	return GetIncreaseCount(input)
 }
 
-func PartTwo() int {
-	INPUT := utils.GetFileInputsAsIntSlice("pkg/advdentofcode/one/input.txt")
-	return GetIncreaseCount(GetWindowSliceSums(INPUT))
+func PartTwo(input []int) int {
+	return GetIncreaseCount(GetWindowSliceSums(input))
 }
 
 func GetWindowSliceSums(w []int) []int {
