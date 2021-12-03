@@ -40,3 +40,13 @@ func GetFileInputsAsStrSlice(f string) []string {
 	}
 	return res
 }
+
+func BinToDec(binary string) int {
+	var result int
+	for i := 0; i < len(binary); i++ {
+		if binary[i] == '1' {
+			result += 1 << uint(len(binary)-i-1)
+		}
+	}
+	return result
+}
