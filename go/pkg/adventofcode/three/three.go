@@ -1,7 +1,6 @@
 package three
 
 import (
-	"fmt"
 	"strings"
 
 	"github.com/voigt/adventofcode2021/pkg/utils"
@@ -89,7 +88,6 @@ func oxygenGeneratorRating(input []string) int {
 			return utils.BinToDec(resultSet[0])
 		}
 	}
-	fmt.Println(resultSet)
 	return utils.BinToDec(resultSet[0])
 }
 
@@ -97,7 +95,6 @@ func co2ScrubberRating(input []string) int {
 	resultSet := input
 	for k := 0; k < len(input[0]); k++ {
 		resultSet = getSetOfIndex0(resultSet, k)
-		fmt.Println(resultSet)
 		if len(resultSet) == 1 {
 			return utils.BinToDec(resultSet[0])
 		}
@@ -112,7 +109,6 @@ func getSetOfIndex1(input []string, i int) []string {
 
 	for k := 0; k < len(input); k++ {
 		l := strings.Split(input[k], "")
-		fmt.Println(l)
 		if l[i] == "1" {
 			resultSet1 = append(resultSet1, input[k])
 		} else {
