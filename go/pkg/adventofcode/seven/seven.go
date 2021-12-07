@@ -1,7 +1,6 @@
 package seven
 
 import (
-	"fmt"
 	"math"
 	"sort"
 	"strconv"
@@ -43,8 +42,6 @@ func PartOne(inputs []string) int {
 func PartTwo(inputs []string) int {
 	crabs := getIntArrayOfString(inputs)
 	sort.Ints(crabs)
-
-	fmt.Printf("%v\n", crabs)
 
 	max, min := crabs[len(crabs)-1], crabs[0]
 	minFuel := math.MaxInt
