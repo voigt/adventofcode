@@ -1,7 +1,6 @@
 package four
 
 import (
-	"fmt"
 	"log"
 	"strconv"
 	"strings"
@@ -139,16 +138,17 @@ func PartTwo(inputs []string) int {
 		board.State = append(board.State, n)
 	}
 
-	winners := make([]Board, 0)
+	var winner Board
 	sq := 0
 	for len(g.Boards) > 0 {
 		for _, n := range g.Sequence {
 			g.MarkBoards(n)
 			index, win := g.GetWinner(n)
 			if win.Winner {
-				fmt.Printf("winner score: number: %d, score: %d, loc: %d\n", n, calculateScore(win, n), index)
+				// fmt.Printf("winner score: number: %d, score: %d, loc: %d\n", n, calculateScore(win, n), index)
+				sq = n
+				winner = win
 				g.Boards = append(g.Boards[:index], g.Boards[index+1:]...)
-				fmt.Println(calculateScore(win, n))
 				break
 			}
 		}
@@ -159,7 +159,7 @@ func PartTwo(inputs []string) int {
 	// }
 
 	// w := g.GetLastWinner()
-	return calculateScore(winners[len(winners)-1], sq)
+	return calculateScore(winner, sq)
 }
 
 func calculateScore(b Board, i int) int {
